@@ -1,50 +1,34 @@
-'use client'
+// 'use client'
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
+import Button from './components/Button';
+import FetchPokemon from './Utils/FetchPokemon';
+import Card from './components/Card';
 
-const PokemonComponent = () => {
-  type Pokemon = {
-    name: string,
-    image: string,
-    id: number,
-  };
 
-  const mainURL = 'https://pokeapi.co/api/v2';
-  const [fetchedPoke, setFetchedPoke] = useState<Pokemon | null>(null);
+const Home = () => {
 
-  const fetchPoke = async () => {
-    try {
-      const response = await fetch(`${mainURL}/pokemon/bulbasaur`);
-      const data = await response.json();
-
-      const fetchedPoke: Pokemon = {
-        name: data.name,
-        image: data.sprites.front_default,
-        id: data.id,
-      };
-      console.log(fetchedPoke);
-      setFetchedPoke(fetchedPoke);
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
-  };
-
+//   return (
+//     <div>
+//       <div className="flex flex-col gap-5 text-center w-max mx-auto my-4 h-24 border-slate-950 border px-12">
+//         <h1>Pokemon</h1>
+//         <Button onClick={FetchPokemon} label='Fetch Poke'/>  
+//       </div>
+//       <div className="flex flex-col gap-5 text-center w-max mx-auto my-4 h-36 border-slate-950 border px-12">
+//         {fetchedPoke && <span>{fetchedPoke.name}</span>}
+//         {fetchedPoke && <Image src={fetchedPoke.image} alt='pokeImg' width={100} height={100}/>}
+//         {/* {fetchedPoke && <span>{fetchedPoke.id}</span>} */}
+//       </div>
+//     </div>
+  //   );
   return (
-    <div>
-      <div className="flex flex-col gap-5 text-center w-max mx-auto my-4 h-24 border-slate-950 border px-12">
-        <h1>Pokemon</h1>
-        <button className="mx-auto border border-fuchsia-100" onClick={fetchPoke}>
-          Fetch Pokemon
-        </button>
-      </div>
-      <div className="flex flex-col gap-5 text-center w-max mx-auto my-4 h-24 border-slate-950 border px-12">
-        {fetchedPoke && <span>{fetchedPoke.name}</span>}
-        {fetchedPoke && <span>{fetchedPoke.image}</span>}
-        {fetchedPoke && <span><Image src={fetchedPoke.image} alt='pokeImg' width={50} height={50}/></span>}
-      </div>
+    <div className='flex text-center items-center justify-center mt-4'>
+      <Card />
     </div>
-  );
+  )
 };
 
-export default PokemonComponent;
+export default Home;
+
+
