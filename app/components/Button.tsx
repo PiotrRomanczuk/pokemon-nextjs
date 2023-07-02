@@ -1,27 +1,27 @@
 import React from 'react';
 
 type ButtonProps = {
-  onClick: () => {};
-  label: string;
-  disabled?: boolean;
-  className?: string;
+	onClick: () => void;
+	label: string;
+	disabled?: boolean;
+	// className?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
-  onClick,
-  label,
-  disabled = false,
-  className = '',
+	onClick,
+	label,
+	disabled = false,
+	// className = '',
 }) => {
-  return (
-    <button
-      className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full${className}`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {label}
-    </button>
-  );
+	return (
+		<button
+			className={`hover:bg-blue-700 rounded-full bg-blue px-1 py-2 font-bold text-black`}
+			onClick={onClick}
+			disabled={disabled}
+		>
+			{label}
+		</button>
+	);
 };
 
 export default Button;
