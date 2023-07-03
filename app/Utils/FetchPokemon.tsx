@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import RandomNumber from './RandomNumber';
-
-export type Pokemon = {
-	name: string;
-	image: string;
-	id: number;
-};
+import { TypePokemon } from '../types/TypePokemon';
 
 const mainURL = 'https://pokeapi.co/api/v2';
 
 type FetchPokemonProps = {
-	onFetchedPoke: (pokemon: Pokemon | null) => void;
+	onFetchedPoke: (pokemon: TypePokemon | null) => void;
 };
 
 const FetchPokemon: React.FC<FetchPokemonProps> = ({ onFetchedPoke }) => {
@@ -21,10 +16,10 @@ const FetchPokemon: React.FC<FetchPokemonProps> = ({ onFetchedPoke }) => {
 			const response = await fetch(`${mainURL}/pokemon/${pokeAmount}`);
 			const data = await response.json();
 
-			const fetchedPoke: Pokemon = {
+			const fetchedPoke: TypePokemon = {
 				name: data.name,
 				id: data.id,
-				image: data.sprites.front_default,
+				image: data.sprites.other.dream_world.front_default,
 			};
 
 			console.log(fetchedPoke);
@@ -38,7 +33,7 @@ const FetchPokemon: React.FC<FetchPokemonProps> = ({ onFetchedPoke }) => {
 
 	return (
 		<div>
-			<button onClick={handleFetch}>Fetch Pokemon</button>
+			<button onClick={handleFetch}>Click</button>
 		</div>
 	);
 };

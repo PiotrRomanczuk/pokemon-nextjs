@@ -18,11 +18,13 @@ const Card = ({ pokeName, pokeID, pokeImg }: CardProps) => {
 			{/* Main */}
 			<div className='h-38 flex w-full bg-yellow'>
 				<div className='w-1/2 p-6'>
-					{pokeImg ? (
-						<Image src={pokeImg} alt='pokemon' width={100} height={100} />
-					) : (
-						''
-					)}
+					<div className='inset-0 h-24 w-24 object-cover'>
+						{pokeImg ? (
+							<Image src={pokeImg} alt='pokemon' width={100} height={100} />
+						) : (
+							''
+						)}
+					</div>
 				</div>
 				<div className='my-3 flex flex-col text-left text-sm'>
 					<span>{pokeID}</span>
