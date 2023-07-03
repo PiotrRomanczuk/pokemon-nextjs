@@ -1,4 +1,4 @@
-export type TypePokemon = {
+export default interface PokemonInterface {
 	name: string;
 	image: string;
 	id: number;
@@ -7,4 +7,4 @@ export type TypePokemon = {
 	HP?: number | undefined;
 	Attack?: number | undefined;
 	Defense?: number | undefined;
-};
+}

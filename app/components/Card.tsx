@@ -2,13 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import Button from './Button';
 
-interface CardProps {
-	pokeName: string | null;
-	pokeID: number | null;
-	pokeImg: string | null;
-}
+import CardProps from '../interfaces/CardProps';
+import SelectComponent from './Select';
 
-const Card = ({ pokeName, pokeID, pokeImg }: CardProps) => {
+const Card = ({ pokeName, pokeID, pokeImg, options }: CardProps) => {
+	const arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
+
 	return (
 		<div className='flex h-128 w-80 flex-col rounded-md border border-slate-500'>
 			{/* Header */}
@@ -28,6 +27,7 @@ const Card = ({ pokeName, pokeID, pokeImg }: CardProps) => {
 				</div>
 				<div className='my-3 flex flex-col text-left text-sm'>
 					<span>{pokeID}</span>
+
 					{/*<span>HP: 73</span>
 					<span>HP: 73</span>
 					<span>Attack: 73</span>
@@ -35,6 +35,7 @@ const Card = ({ pokeName, pokeID, pokeImg }: CardProps) => {
 					<span>Special-Attack: 73</span>
 					<span>Special-Defense: 82</span>
 					<span>Speed: 11</span> */}
+					{/* <SelectComponent options={options} onSelect={() => {}} /> */}
 				</div>
 			</div>
 			{/* Evolutions */}

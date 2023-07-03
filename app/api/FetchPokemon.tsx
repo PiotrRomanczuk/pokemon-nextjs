@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import RandomNumber from './RandomNumber';
-import { TypePokemon } from '../types/TypePokemon';
+import RandomNumber from '../Utils/RandomNumber';
+import PokemonInterface from '../interfaces/PokemonInterface';
 
 const mainURL = 'https://pokeapi.co/api/v2';
 
 type FetchPokemonProps = {
-	onFetchedPoke: (pokemon: TypePokemon | null) => void;
+	onFetchedPoke: (pokemon: PokemonInterface | null) => void;
 };
 
 const FetchPokemon: React.FC<FetchPokemonProps> = ({ onFetchedPoke }) => {
@@ -16,7 +16,7 @@ const FetchPokemon: React.FC<FetchPokemonProps> = ({ onFetchedPoke }) => {
 			const response = await fetch(`${mainURL}/pokemon/${pokeAmount}`);
 			const data = await response.json();
 
-			const fetchedPoke: TypePokemon = {
+			const fetchedPoke: PokemonInterface = {
 				name: data.name,
 				id: data.id,
 				image: data.sprites.other.dream_world.front_default,
