@@ -1,7 +1,7 @@
 export default interface PokemonInterface {
 	name: string;
-	image: string;
-	id: number;
+	id: number | null;
+	image?: string;
 	height?: number | undefined;
 	weight?: number | undefined;
 	HP?: number | undefined;
