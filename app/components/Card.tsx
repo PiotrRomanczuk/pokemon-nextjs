@@ -2,8 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import Button from './Button';
 
-import CardProps from '../interfaces/CardProps';
 import SelectComponent from './Select';
+
+interface CardProps {
+	pokeName: string | null;
+	pokeID: number | null;
+	pokeImg: string | null;
+	options?: string[];
+}
 
 const Card = ({ pokeName, pokeID, pokeImg, options }: CardProps) => {
 	const arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
@@ -19,7 +25,7 @@ const Card = ({ pokeName, pokeID, pokeImg, options }: CardProps) => {
 				<div className='w-1/2 p-6'>
 					<div className='inset-0 h-24 w-24 object-cover'>
 						{pokeImg ? (
-							<Image src={pokeImg} alt='pokemon' width={100} height={100} />
+							<Image src={pokeImg} alt='pokemon' width={750} height={750} />
 						) : (
 							''
 						)}

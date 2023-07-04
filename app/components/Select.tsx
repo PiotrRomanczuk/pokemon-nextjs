@@ -12,7 +12,7 @@ const SelectComponent: React.FC<SelectComponentProps> = ({
 	const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
 		const selectedOption = event.target.value;
 		onSelect(selectedOption);
-		console.log(selectedOption);
+		// console.log(selectedOption);
 	};
 
 	return (
